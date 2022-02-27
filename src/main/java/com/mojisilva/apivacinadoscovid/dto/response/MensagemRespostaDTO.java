@@ -1,4 +1,4 @@
-package com.mojisilva.apivacinadoscovid.dto;
+package com.mojisilva.apivacinadoscovid.dto.response;
 
 import lombok.Builder;
 import lombok.Data;

@@ -1,6 +1,6 @@
 package com.mojisilva.apivacinadoscovid.controller;
 
-import com.mojisilva.apivacinadoscovid.dto.MensagemRespostaDTO;
+import com.mojisilva.apivacinadoscovid.dto.response.MensagemRespostaDTO;
 import com.mojisilva.apivacinadoscovid.entity.Paciente;
 import com.mojisilva.apivacinadoscovid.repository.RepositorioVacinacao;
 import org.springframework.beans.factory.annotation.Autowired;

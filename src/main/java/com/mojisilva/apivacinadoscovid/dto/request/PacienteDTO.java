@@ -38,7 +38,5 @@ public class PacienteDTO {
 
     @Valid
     @NotEmpty
-    private List<Vacina> vacinas;
-
-
+    private List<VacinaDTO> vacinas;
 }
