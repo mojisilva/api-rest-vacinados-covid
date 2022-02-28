@@ -19,12 +19,18 @@ public class ServicoVacinacao {
     private final RepositorioVacinacao repositorioVacinacao;
     private final MapeadorVacinacao mapeadorVacinacao;
 
-
-
-   /* @PostMapping
-    public MensagemRespostaDTO criarPaciente(@RequestBody PacienteDTO pacienteDTO) {
+    @PostMapping
+    public MensagemRespostaDTO criarPaciente(@RequestBody PacienteDTO pacienteDTO){
         Paciente paciente = mapeadorVacinacao.toModel(pacienteDTO);
-        Paciente pacienteSalvo = repositorioVacinacao.save(paciente);
+        Paciente pacienteRegistrado = repositorioVacinacao.save(paciente);
+        return MensagemRespostaDTO
+                .builder()
+                .mensagem("Registro do paciente salvo com sucesso ID: " + pacienteRegistrado.getId())
+                .build();
+    }
+
+
+   /*   Paciente pacienteSalvo = repositorioVacinacao.save(paciente);
         return MensagemRespostaDTO
                 .builder()
                 .mensagem("Resgistro do paciente salvo com sucesso ID " + pacienteSalvo.getId())
