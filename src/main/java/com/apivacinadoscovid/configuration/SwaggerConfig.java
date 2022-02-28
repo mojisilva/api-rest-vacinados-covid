@@ -16,19 +16,23 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
 
     @Bean
-    public Docket api(){
+    public Docket apiVaccine() {
         return new Docket(DocumentationType.OAS_30)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.apivacinadoscovid.controller"))
                 .paths(PathSelectors.any())
+                .build()
+                .apiInfo(apiInfo());
+    }
+
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title("API Rest Vacinados Covid")
+                .description("Documentação API Rest Vacinados Covid")
+                .version("1.0.0")
                 .build();
 
     }
-    /*private ApiInfo apiInfo(){
-        return new ApiInfoBuilder()
-                .title("Teste")
-                .version("1.0")
-                .description("Teste")
-                .build();
-    }*/
+
+
 }
