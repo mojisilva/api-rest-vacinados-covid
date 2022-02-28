@@ -6,7 +6,6 @@ import com.mojisilva.apivacinadoscovid.dto.response.MensagemRespostaDTO;
 import com.mojisilva.apivacinadoscovid.entity.Paciente;
 import com.mojisilva.apivacinadoscovid.repository.RepositorioVacinacao;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,17 +22,15 @@ public class ServicoVacinacao {
     public MensagemRespostaDTO criarPaciente(@RequestBody PacienteDTO pacienteDTO){
         Paciente paciente = mapeadorVacinacao.toModel(pacienteDTO);
         Paciente pacienteRegistrado = repositorioVacinacao.save(paciente);
+        MensagemRespostaDTO mensagemRespostaDTO = criarMensagemResposta("Registro do paciente salvo com sucesso ID: ", pacienteRegistrado.getId());
+        return mensagemRespostaDTO;
+    }
+
+    private MensagemRespostaDTO criarMensagemResposta(String status, Long id){
         return MensagemRespostaDTO
                 .builder()
-                .mensagem("Registro do paciente salvo com sucesso ID: " + pacienteRegistrado.getId())
+                .mensagem(status + id)
                 .build();
     }
 
-
-   /*   Paciente pacienteSalvo = repositorioVacinacao.save(paciente);
-        return MensagemRespostaDTO
-                .builder()
-                .mensagem("Resgistro do paciente salvo com sucesso ID " + pacienteSalvo.getId())
-                .build();
-    }*/
 }

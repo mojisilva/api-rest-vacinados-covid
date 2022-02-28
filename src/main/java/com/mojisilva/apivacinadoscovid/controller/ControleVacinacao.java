@@ -1,31 +1,28 @@
 package com.mojisilva.apivacinadoscovid.controller;
 
+import com.mojisilva.apivacinadoscovid.dto.request.PacienteDTO;
 import com.mojisilva.apivacinadoscovid.dto.response.MensagemRespostaDTO;
 import com.mojisilva.apivacinadoscovid.entity.Paciente;
 import com.mojisilva.apivacinadoscovid.repository.RepositorioVacinacao;
+import com.mojisilva.apivacinadoscovid.services.ServicoVacinacao;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/vaccine")
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class ControleVacinacao {
 
-    private RepositorioVacinacao repositorioVacinacao;
-
-    @Autowired
-    public ControleVacinacao(RepositorioVacinacao repositorioVacinacao) {
-        this.repositorioVacinacao = repositorioVacinacao;
-    }
+    private final ServicoVacinacao servicoVacinacao;
 
     @PostMapping
-    public MensagemRespostaDTO criarPaciente(@RequestBody Paciente paciente){
-        Paciente pacienteSalvo = repositorioVacinacao.save(paciente);
-        return MensagemRespostaDTO
-                .builder()
-                .mensagem("Resgistro do paciente salvo com sucesso ID " + pacienteSalvo.getId())
-                .build();
-
+    @ResponseStatus(HttpStatus.CREATED)
+    public MensagemRespostaDTO criarPaciente(@RequestBody @Valid PacienteDTO pacienteDTO){
+        return servicoVacinacao.criarPaciente(pacienteDTO);
     }
-
 
 }
