@@ -1,6 +1,6 @@
-package com.mojisilva.apivacinadoscovid.entity;
+package com.apivacinadoscovid.entity;
 
-import com.mojisilva.apivacinadoscovid.enums.NomeVacina;
+import com.apivacinadoscovid.enums.NomeVacina;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

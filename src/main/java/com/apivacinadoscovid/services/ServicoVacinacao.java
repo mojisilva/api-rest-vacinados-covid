@@ -1,10 +1,10 @@
-package com.mojisilva.apivacinadoscovid.services;
+package com.apivacinadoscovid.services;
 
-import com.mojisilva.apivacinadoscovid.dto.mapper.MapeadorVacinacao;
-import com.mojisilva.apivacinadoscovid.dto.request.PacienteDTO;
-import com.mojisilva.apivacinadoscovid.dto.response.MensagemRespostaDTO;
-import com.mojisilva.apivacinadoscovid.entity.Paciente;
-import com.mojisilva.apivacinadoscovid.repository.RepositorioVacinacao;
+import com.apivacinadoscovid.dto.mapper.MapeadorVacinacao;
+import com.apivacinadoscovid.dto.response.MensagemRespostaDTO;
+import com.apivacinadoscovid.entity.Paciente;
+import com.apivacinadoscovid.repository.RepositorioVacinacao;
+import com.apivacinadoscovid.dto.request.PacienteDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

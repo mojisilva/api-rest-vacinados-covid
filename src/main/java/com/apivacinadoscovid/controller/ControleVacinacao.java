@@ -1,16 +1,18 @@
-package com.mojisilva.apivacinadoscovid.controller;
+package com.apivacinadoscovid.controller;
 
-import com.mojisilva.apivacinadoscovid.dto.request.PacienteDTO;
-import com.mojisilva.apivacinadoscovid.dto.response.MensagemRespostaDTO;
-import com.mojisilva.apivacinadoscovid.entity.Paciente;
-import com.mojisilva.apivacinadoscovid.repository.RepositorioVacinacao;
-import com.mojisilva.apivacinadoscovid.services.ServicoVacinacao;
+import com.apivacinadoscovid.dto.response.MensagemRespostaDTO;
+import com.apivacinadoscovid.dto.request.PacienteDTO;
+import com.apivacinadoscovid.services.ServicoVacinacao;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
+import org.mapstruct.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+
 
 @RestController
 @RequestMapping("/api/v1/vaccine")
@@ -19,7 +21,7 @@ public class ControleVacinacao {
 
     private final ServicoVacinacao servicoVacinacao;
 
-    @PostMapping
+    @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public MensagemRespostaDTO criarPaciente(@RequestBody @Valid PacienteDTO pacienteDTO){
         return servicoVacinacao.criarPaciente(pacienteDTO);

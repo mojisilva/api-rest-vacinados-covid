@@ -1,4 +1,4 @@
-package com.mojisilva.apivacinadoscovid.enums;
+package com.apivacinadoscovid.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

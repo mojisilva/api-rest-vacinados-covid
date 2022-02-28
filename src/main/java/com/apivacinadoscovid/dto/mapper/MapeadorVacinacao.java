@@ -1,9 +1,9 @@
-package com.mojisilva.apivacinadoscovid.dto.mapper;
+package com.apivacinadoscovid.dto.mapper;
 
-import com.mojisilva.apivacinadoscovid.dto.request.PacienteDTO;
-import com.mojisilva.apivacinadoscovid.dto.request.VacinaDTO;
-import com.mojisilva.apivacinadoscovid.entity.Paciente;
-import com.mojisilva.apivacinadoscovid.entity.Vacina;
+import com.apivacinadoscovid.entity.Paciente;
+import com.apivacinadoscovid.dto.request.PacienteDTO;
+import com.apivacinadoscovid.dto.request.VacinaDTO;
+import com.apivacinadoscovid.entity.Vacina;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

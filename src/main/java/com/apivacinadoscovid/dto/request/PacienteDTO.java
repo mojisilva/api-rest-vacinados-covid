@@ -1,6 +1,5 @@
-package com.mojisilva.apivacinadoscovid.dto.request;
+package com.apivacinadoscovid.dto.request;
 
-import com.mojisilva.apivacinadoscovid.entity.Vacina;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
