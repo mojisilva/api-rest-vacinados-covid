@@ -3,10 +3,7 @@ package com.apivacinadoscovid.controller;
 import com.apivacinadoscovid.dto.response.MensagemRespostaDTO;
 import com.apivacinadoscovid.dto.request.PacienteDTO;
 import com.apivacinadoscovid.services.ServicoVacinacao;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
-import org.mapstruct.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +21,7 @@ public class ControleVacinacao {
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public MensagemRespostaDTO criarPaciente(@RequestBody @Valid PacienteDTO pacienteDTO){
-        return servicoVacinacao.criarPaciente(pacienteDTO);
+        return servicoVacinacao.registrarPaciente(pacienteDTO);
     }
 
 }

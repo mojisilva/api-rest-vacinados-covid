@@ -3,6 +3,7 @@ package com.apivacinadoscovid.services;
 import com.apivacinadoscovid.dto.mapper.MapeadorVacinacao;
 import com.apivacinadoscovid.dto.response.MensagemRespostaDTO;
 import com.apivacinadoscovid.entity.Paciente;
+import com.apivacinadoscovid.exceptions.PacienteNaoEncontrado;
 import com.apivacinadoscovid.repository.RepositorioVacinacao;
 import com.apivacinadoscovid.dto.request.PacienteDTO;
 import lombok.AllArgsConstructor;
@@ -19,12 +20,28 @@ public class ServicoVacinacao {
     private final MapeadorVacinacao mapeadorVacinacao;
 
     @PostMapping
-    public MensagemRespostaDTO criarPaciente(@RequestBody PacienteDTO pacienteDTO){
+    public MensagemRespostaDTO registrarPaciente(@RequestBody PacienteDTO pacienteDTO){
         Paciente paciente = mapeadorVacinacao.toModel(pacienteDTO);
         Paciente pacienteRegistrado = repositorioVacinacao.save(paciente);
         MensagemRespostaDTO mensagemRespostaDTO = criarMensagemResposta("Registro do paciente salvo com sucesso ID: ", pacienteRegistrado.getId());
         return mensagemRespostaDTO;
     }
+
+    public PacienteDTO buscarPaciente(Long id) throws PacienteNaoEncontrado {
+        Paciente paciente = repositorioVacinacao.findById(id)
+                .orElseThrow(() -> new PacienteNaoEncontrado(id));
+        return mapeadorVacinacao.toDTO(paciente);
+    }
+
+
+
+
+
+
+
+
+
+
 
     private MensagemRespostaDTO criarMensagemResposta(String status, Long id){
         return MensagemRespostaDTO
