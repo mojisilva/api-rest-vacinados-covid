@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class PacienteNaoEncontrado extends Exception {
 
     public PacienteNaoEncontrado(Long id){
-        super(String.format("Paciente %s não enconytrado", id));
+        super(String.format("Paciente %s não encontrado", id));
     }
 
 }

@@ -17,5 +17,4 @@ public interface MapeadorVacinacao {
     @Mapping(target = "dataVacinacao", source = "dataVacinacao", dateFormat = "dd-MM-yyyy")
     Vacina toModel(VacinaDTO dto);
     VacinaDTO toDTO(Vacina dto);
-
 }

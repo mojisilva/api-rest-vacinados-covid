@@ -30,4 +30,5 @@ public class Vacina {
     private int dose;
 
     private LocalDate dataVacinacao;
+
 }

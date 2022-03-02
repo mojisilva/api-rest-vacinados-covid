@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,6 +34,7 @@ public class ServicoVacinacao {
                 .orElseThrow(() -> new PacienteNaoEncontrado(id));
         return mapeadorVacinacao.toDTO(paciente);
     }
+
     public List<PacienteDTO> listarPacientes(){
         List<Paciente> pacientes = repositorioVacinacao.findAll();
         return pacientes.stream()
@@ -47,11 +47,8 @@ public class ServicoVacinacao {
                 .orElseThrow(() -> new PacienteNaoEncontrado(id));
         Paciente pacienteAtualizado = mapeadorVacinacao.toModel(pacienteDTO);
         Paciente pacienteSalvo = repositorioVacinacao.save(pacienteAtualizado);
-
         MensagemRespostaDTO mensagemResposta = criarMensagemResposta("Paciente atualizado com sucesso ID ", pacienteSalvo.getId());
-
         return mensagemResposta;
-
     }
 
     public void deletarPaciente(Long id) throws PacienteNaoEncontrado{
@@ -59,15 +56,6 @@ public class ServicoVacinacao {
                 .orElseThrow(() -> new PacienteNaoEncontrado(id));
         repositorioVacinacao.deleteById(id);
     }
-
-
-
-
-
-
-
-
-
 
     private MensagemRespostaDTO criarMensagemResposta(String status, Long id){
         return MensagemRespostaDTO

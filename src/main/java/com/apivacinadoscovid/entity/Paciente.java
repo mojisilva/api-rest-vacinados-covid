@@ -33,4 +33,5 @@ public class Paciente {
 
         @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
         private List<Vacina> vacinas = new ArrayList<>();
+
 }
