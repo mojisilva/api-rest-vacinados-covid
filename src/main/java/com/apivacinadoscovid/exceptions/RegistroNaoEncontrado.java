@@ -4,10 +4,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
-public class PacienteNaoEncontrado extends Exception {
+public class RegistroNaoEncontrado extends Exception {
 
-    public PacienteNaoEncontrado(Long id){
-        super(String.format("Paciente %s não encontrado", id));
+    public RegistroNaoEncontrado(Long id){
+        super(String.format("Registro %s não encontrado", id));
     }
 
 }

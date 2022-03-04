@@ -15,7 +15,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PacienteDTO {
+public class VacinadoDTO {
 
     private long id;
 

@@ -1,8 +1,8 @@
 package com.apivacinadoscovid.controller;
 
-import com.apivacinadoscovid.dto.response.MensagemRespostaDTO;
-import com.apivacinadoscovid.dto.request.PacienteDTO;
-import com.apivacinadoscovid.exceptions.PacienteNaoEncontrado;
+import com.apivacinadoscovid.dto.response.MensagemResposta;
+import com.apivacinadoscovid.dto.request.VacinadoDTO;
+import com.apivacinadoscovid.exceptions.RegistroNaoEncontrado;
 import com.apivacinadoscovid.services.ServicoVacinacao;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,31 +28,31 @@ public class ControleVacinacao {
 
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public MensagemRespostaDTO criarPaciente(@RequestBody @Valid PacienteDTO pacienteDTO){
-        return servicoVacinacao.registrarPaciente(pacienteDTO);
+    public MensagemResposta registrarVacinado(@RequestBody @Valid VacinadoDTO vacinadoDTO){
+        return servicoVacinacao.registrarVacinado(vacinadoDTO);
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public PacienteDTO buscarPaciente(@PathVariable Long id) throws PacienteNaoEncontrado {
-        return servicoVacinacao.buscarPaciente(id);
+    public VacinadoDTO buscarVacinado(@PathVariable Long id) throws RegistroNaoEncontrado {
+        return servicoVacinacao.buscarVacinado(id);
     }
 
     @GetMapping
-    public List<PacienteDTO> listarPacientes(){
-        return servicoVacinacao.listarPacientes();
+    public List<VacinadoDTO> listarVacinado(){
+        return servicoVacinacao.listarVacinados();
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public MensagemRespostaDTO atualizarPaciente(@PathVariable Long id, @RequestBody @Valid PacienteDTO pacienteDTO) throws PacienteNaoEncontrado{
-        return servicoVacinacao.atualizarPaciente(id, pacienteDTO);
+    public MensagemResposta atualizarVacinado(@PathVariable Long id, @RequestBody @Valid VacinadoDTO vacinadoDTO) throws RegistroNaoEncontrado {
+        return servicoVacinacao.atualizarVacinados(id, vacinadoDTO);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deletarPaciente(@PathVariable Long id) throws PacienteNaoEncontrado{
-        servicoVacinacao.deletarPaciente(id);
+    public void deletarVacinado(@PathVariable Long id) throws RegistroNaoEncontrado {
+        servicoVacinacao.deletarVacinado(id);
     }
 
 }

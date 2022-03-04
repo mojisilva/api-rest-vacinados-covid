@@ -14,7 +14,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Paciente {
+public class Vacinado {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
