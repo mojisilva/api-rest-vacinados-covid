@@ -31,7 +31,7 @@ public class Vacinado {
 
         private LocalDate aniversario;
 
-        @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+        @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
         private List<Vacina> vacinas = new ArrayList<>();
 
 }
